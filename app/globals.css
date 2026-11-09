@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@theme {
+  --color-nightmare: #121F0D;
+  --color-ceylanite: #30401C;
+  --color-basil: #526531;
+  --color-suede: #758850;
+  --color-plaza: #98A973;
+  --color-grape: #B9C798;
+  --color-sorbet: #DCE7BE;
+
+  --color-nightmare-surface: #172611;
+  --color-nightmare-card: #1c2c15;
+  --color-nightmare-card-hover: #22351a;
+  --color-nightmare-border: #2e4122;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #121F0D;
+  --foreground: #DCE7BE;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #121F0D;
+  color: #DCE7BE;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Botanical Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121F0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #30401C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #526531;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(28, 44, 21, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(117, 136, 80, 0.22);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(34, 53, 26, 0.85);
+  border-color: rgba(220, 231, 190, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(82, 101, 49, 0.35);
+}
+
+.glass-nav {
+  background: rgba(18, 31, 13, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(82, 101, 49, 0.25);
+}
+
+/* Ambient glow accents */
+.ambient-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+/* Subtle botanical grid */
+.botanical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(82, 101, 49, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(82, 101, 49, 0.08) 1px, transparent 1px);
 }
